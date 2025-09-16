@@ -78,7 +78,7 @@ condition    = expression , comparator , expression ;
 comparator   = "=" | "!=" | "<" | ">" | "<=" | ">=" ;
 
 sensor       = "valor" | "quantidade" | "meta" ;
-
+```
 
 
 
@@ -106,7 +106,7 @@ if (s >= m) {
 
 quebrar;     // reseta o cofrinho (zerando saldo e categorias)
 finalizar;   // fim da execução
-
+```
 
 
 
