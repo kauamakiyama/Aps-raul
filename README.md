@@ -82,7 +82,7 @@ sensor       = "valor" | "quantidade" | "meta" ;
 
 
 
-## Exemplo de uso  
+## Exemplo de uso
 
 ```pigglet
 definir_meta(200);
@@ -111,7 +111,7 @@ finalizar;   // fim da execução
 
 
 
-Explicação do código
+## Explicação do código 
 
 1 - Define uma meta de 200 unidades.
 
@@ -129,7 +129,7 @@ Explicação do código
 
 
 
-💡 Possíveis usos
+## Possiveis usos da linguagem
 
  - Simulação de economia pessoal.
 
