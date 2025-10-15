@@ -207,3 +207,6 @@ finalizar;
 ```
 
 Essa é uma regra obrigatória da linguagem!
+
+
+É preciso terminar o programa usando o finalizar()!!!
