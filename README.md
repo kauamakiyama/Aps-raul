@@ -138,3 +138,72 @@ finalizar;   // fim da execução
  - Demonstração de compiladores e máquinas virtuais simples em sala de aula.
 
  - Linguagem didática para mostrar abstração de máquina.
+
+---
+
+## 🔧 Como compilar
+
+### No Windows:
+
+1. **Instale as ferramentas necessárias:**
+   - **MinGW-w64** (para gcc)
+   - **Bison** e **Flex** (ou use WSL)
+
+2. **Use um dos scripts de build:**
+   ```cmd
+   # Opção 1: Script Batch
+   build.bat
+   
+   # Opção 2: Script PowerShell
+   powershell -ExecutionPolicy Bypass -File build.ps1
+   ```
+
+3. **Ou use WSL (recomendado):**
+   ```bash
+   # No WSL/Linux
+   make
+   ```
+
+### No Linux/WSL:
+
+```bash
+make
+```
+
+### Arquivos gerados:
+- `pigglet.tab.c` e `pigglet.tab.h` (parser)
+- `lex.yy.c` (lexer)
+- `pigglet.exe` (executável final)
+
+### Limpeza:
+```bash
+make clean
+```
+
+---
+
+## 🧪 Como usar a linguagem
+
+### 1. Compilar o projeto:
+```bash
+make
+```
+
+### 2. Executar um programa:
+```bash
+./pigglet < exemplo.pigglet
+```
+
+### 3. Teste interativo:
+```bash
+echo "depositar(100); saldo(); quebrar; finalizar;" | ./pigglet
+```
+
+### ⚠️ Regra importante:
+**Todos os programas Pigglet devem terminar com:**
+```pigglet
+quebrar;
+finalizar;
+```
+
+Essa é uma regra obrigatória da linguagem!
