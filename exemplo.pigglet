@@ -1,0 +1,23 @@
+definir_meta(200);
+
+obter(meta) => m;
+obter(valor) => s;
+
+while (s < m) {
+    depositar(50, viagem);
+    depositar(20, festa);
+    saldo(viagem);
+    saldo(festa);
+    obter(valor) => s;
+}
+
+if (s >= m) {
+    imprimir("Parabéns! Você atingiu sua meta!");
+} else {
+    imprimir("Ainda falta juntar mais...");
+}
+
+quebrar;
+finalizar;
+
+

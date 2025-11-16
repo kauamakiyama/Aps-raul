@@ -1,10 +1,10 @@
 %{
 #include "pigglet.tab.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 void yyerror(const char *s);
-char* yylval_string;
 %}
 
 %option noyywrap nounput noinput
@@ -54,7 +54,7 @@ string      \"([^\\"]|\\.)*\"
 {identifier}        { yylval.str = strdup(yytext); return IDENTIFIER; }
 {string}            { yylval.str = strdup(yytext); return STRING; }
 
-[ \t\n\r]+          { /* ignora espaços e quebras de linha */ }
+[ \t\n\r]+          { }
 .                   { printf("Caractere desconhecido: %s\n", yytext); }
 
 %%

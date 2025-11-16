@@ -12,8 +12,8 @@ YACC_FILE = pigglet.y
 # Regras
 all: $(TARGET)
 
-$(TARGET): pigglet.tab.c lex.yy.c
-	$(CC) $(CFLAGS) pigglet.tab.c lex.yy.c -o $(TARGET)
+$(TARGET): pigglet.tab.c lex.yy.c vm.c
+	$(CC) $(CFLAGS) pigglet.tab.c lex.yy.c vm.c -o $(TARGET)
 
 pigglet.tab.c pigglet.tab.h: $(YACC_FILE)
 	$(YACC) $(YACC_FILE)

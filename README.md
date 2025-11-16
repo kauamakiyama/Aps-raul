@@ -1,6 +1,6 @@
-# 🐷 Pigglet – Linguagem de Programação para a VM Cofrinho  
+# Pigglet – Linguagem de Programação para a VM Cofrinho  
 
-## 📌 Contextualização  
+## Contextualização  
 
 O **Pigglet** é uma linguagem de programação de alto nível desenvolvida para interagir com a **VM Cofrinho**.  
 Ela simula um cofrinho inteligente, permitindo operações de **depósito, saque e consulta**, além de funcionalidades adicionais como:  
@@ -20,7 +20,7 @@ Com isso, é possível simular diferentes estratégias de economia e programar r
 
 ---
 
-## 📜 Pigglet especificada em EBNF  
+## Pigglet especificada em EBNF  
 
 ```ebnf
 letter       = "A" | "B" | ... | "Z"
@@ -91,11 +91,11 @@ obter(meta) => m;
 obter(valor) => s;
 
 while (s < m) {
-    depositar(50, viagem);       // guarda 50 na categoria viagem
-    depositar(20, festa);        // guarda 20 na categoria festa
-    saldo(viagem);               // mostra quanto já tem na viagem
-    saldo(festa);                // mostra quanto já tem na festa
-    obter(valor) => s;           // atualiza o valor total
+    depositar(50, viagem);
+    depositar(20, festa);
+    saldo(viagem);
+    saldo(festa);
+    obter(valor) => s;
 }
 
 if (s >= m) {
@@ -104,8 +104,8 @@ if (s >= m) {
     imprimir("Ainda falta juntar mais...");
 }
 
-quebrar;     // reseta o cofrinho (zerando saldo e categorias)
-finalizar;   // fim da execução
+quebrar;
+finalizar;
 ```
 
 
@@ -141,7 +141,7 @@ finalizar;   // fim da execução
 
 ---
 
-## 🔧 Como compilar
+## Como compilar
 
 ### No Windows:
 
@@ -182,7 +182,63 @@ make clean
 
 ---
 
-## 🧪 Como usar a linguagem
+## Arquitetura da VM
+
+A VM Pigglet foi construída seguindo o padrão do **MicrowaveVM**, com:
+
+### Componentes principais:
+
+1. **Sistema de Valores (`Value`)**
+   - Tipos: `int`, `bool`, `string`
+   - Conversão automática entre tipos
+   - Gerenciamento de memória
+
+2. **Pilha de Execução (`Stack`)**
+   - Operações push/pop
+   - Suporte a operações aritméticas
+   - Gerenciamento dinâmico de capacidade
+
+3. **Tabela de Símbolos (`Variables`)**
+   - Armazenamento de variáveis
+   - Busca por nome
+   - Atualização dinâmica
+
+4. **Categorias de Poupança (`Categories`)**
+   - Múltiplas categorias
+   - Saldo por categoria
+   - Gerenciamento de memória
+
+5. **Sistema de Bytecode (Preparado)**
+   - Estrutura para instruções
+   - Interpretador de bytecode
+   - Opcodes definidos
+
+### Estrutura da VM:
+
+```c
+typedef struct {
+    Variable *variables;
+    Category *categories;
+    int total_balance;
+    int meta;
+    Value *stack;
+    Instruction *program;
+} VM;
+```
+
+### Funcionalidades implementadas:
+
+- **Gerenciamento de memória**: Alocação e liberação automática
+- **Pilha de execução**: Operações push/pop
+- **Tabela de símbolos**: Variáveis dinâmicas
+- **Categorias**: Múltiplas categorias de poupança
+- **Sensores**: Leitura de valores da VM
+- **Comandos**: Depositar, sacar, saldo, etc.
+- **Estado da VM**: Visualização completa do estado
+
+---
+
+## Como usar a linguagem
 
 ### 1. Compilar o projeto:
 ```bash
@@ -199,7 +255,7 @@ make
 echo "depositar(100); saldo(); quebrar; finalizar;" | ./pigglet
 ```
 
-### ⚠️ Regra importante:
+### Regra importante:
 **Todos os programas Pigglet devem terminar com:**
 ```pigglet
 quebrar;
